@@ -79,7 +79,9 @@ testfuns(Module) ->
     MakeApplicative = fun({FunName, _}) ->
         fun() ->
             inc(tests),
+            io:format("  ~p: ~p..", [Module, FunName]),
             Module:FunName(),
+            io:format("ok~n", []),
             inc(success)
         end
     end,
